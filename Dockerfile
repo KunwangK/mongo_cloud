@@ -5,15 +5,4 @@ FROM bellsoft/liberica-openjdk-debian:17.0.11-cds
 
 LABEL maintainer="Wang Kun"
 
-RUN mkdir -p /mongo/nacos
-
-WORKDIR /mongo/nacos
-
-EXPOSE 8848
-
-ENV TZ=Asia/Shanghai LANG=C.UTF-8 LC_ALL=C.UTF-8 JAVA_OPTS="-Xms512m -Xmx1024m"
-
-ADD ./target/mongo-nacos.jar ./app.jar
-
-ENTRYPOINT java -Djava.security.egd=file:/dev/./urandom ${JAVA_OPTS} -jar app.jar
 
